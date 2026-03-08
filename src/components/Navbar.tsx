@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -69,6 +70,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <a
             href="https://github.com/anirbanpay/anirbanpay"
             target="_blank"
@@ -119,7 +121,8 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="flex gap-3 mt-4 pt-4 border-t border-border/30">
+              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border/30">
+                <ThemeToggle />
                 <a
                   href="https://github.com/anirbanpay/anirbanpay"
                   target="_blank"

@@ -45,9 +45,8 @@ const Navbar = () => {
             whileHover={{ rotate: 10, scale: 1.1 }}
             transition={{ type: "spring", stiffness: 300 }}
           />
-          <div className="flex flex-col">
+          <div>
             <span className="text-base font-bold gradient-text leading-tight">Anirban Pay</span>
-            <span className="text-[10px] text-muted-foreground font-medium tracking-widest uppercase">অনির্বাণ পে</span>
           </div>
         </Link>
 

@@ -42,7 +42,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href="https://github.com/anirbanpay/anirbanpay"
             target="_blank"

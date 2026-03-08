@@ -129,8 +129,8 @@ const Pricing = () => (
                 to={plan.href}
                 className={`block text-center py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
                   plan.highlighted
-                    ? "text-primary-foreground hover:opacity-90"
-                    : "border border-border/60 text-foreground hover:bg-muted/30 hover:border-border"
+                    ? "text-primary-foreground liquid-button hover:opacity-90"
+                    : "liquid-pill text-foreground hover:border-primary/20"
                 }`}
                 style={plan.highlighted ? { background: "var(--gradient-primary)" } : {}}
               >
@@ -149,7 +149,7 @@ const Pricing = () => (
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="glass-card p-10 md:p-16 text-center max-w-3xl mx-auto"
+          className="liquid-glass p-10 md:p-16 text-center max-w-3xl mx-auto"
         >
           <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
             <Puzzle size={24} className="text-accent" />

@@ -149,7 +149,7 @@ const Pricing = () => (
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="glass-card p-10 md:p-16 text-center max-w-3xl mx-auto"
+          className="liquid-glass p-10 md:p-16 text-center max-w-3xl mx-auto"
         >
           <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
             <Puzzle size={24} className="text-accent" />

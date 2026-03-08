@@ -371,7 +371,7 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl"
+            className="relative overflow-hidden rounded-3xl liquid-glass"
           >
             {/* Background */}
             <div className="absolute inset-0" style={{ background: "var(--gradient-primary)" }} />

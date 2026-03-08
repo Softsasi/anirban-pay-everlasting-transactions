@@ -8,7 +8,7 @@ const sections = [
   { title: "3. Self-Hosted Responsibility", content: "Users who self-host Anirban Pay are responsible for their own server security, data protection, and compliance with local laws and regulations regarding payment processing." },
   { title: "4. Plugin Store", content: "Developers may submit plugins to the Anirban Pay Plugin Store. The platform retains 30% of plugin sales to cover maintenance, security reviews, and infrastructure costs. Developers receive 70% of each sale.\n\nAll plugins must pass security review before being listed. We reserve the right to remove plugins that violate our guidelines." },
   { title: "5. Cloud Hosting", content: "Cloud-hosted plans are billed monthly or annually. We reserve the right to modify pricing with 30 days notice. Service availability is subject to our infrastructure providers." },
-  { title: "6. Limitation of Liability", content: "Anirban Pay is provided "as is" without warranty. We are not liable for any damages arising from the use of the platform, including but not limited to financial losses from payment processing errors." },
+  { title: "6. Limitation of Liability", content: "Anirban Pay is provided \"as is\" without warranty. We are not liable for any damages arising from the use of the platform, including but not limited to financial losses from payment processing errors." },
   { title: "7. Changes to Terms", content: "We may update these terms at any time. Continued use of the platform constitutes acceptance of the updated terms." },
   { title: "8. Contact", content: "Questions about these terms? Reach out via our GitHub organization at github.com/anirbanpay." },
 ];

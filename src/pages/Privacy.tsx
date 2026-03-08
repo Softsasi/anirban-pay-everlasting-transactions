@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import { Shield } from "lucide-react";
 
 const sections = [
-  { title: "1. Introduction", content: "Anirban Pay ("we", "our", "us") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information when you use our platform." },
+  { title: "1. Introduction", content: "Anirban Pay (\"we\", \"our\", \"us\") is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your information when you use our platform." },
   { title: "2. Information We Collect", content: "Since Anirban Pay is a self-hosted platform, we do not collect or store your data on our servers. All transaction data, API keys, and customer information remain on your own hosting infrastructure.\n\nFor cloud-hosted users, we collect only the information necessary to provide the hosting service, including account credentials and billing information." },
   { title: "3. Data Security", content: "We implement industry-standard security measures including encrypted core files, HTTPS enforcement, and support for two-factor authentication to protect your installation." },
   { title: "4. Third-Party Services", content: "Anirban Pay integrates with third-party payment gateways (bKash, Nagad, etc.). Each gateway has its own privacy policy. We encourage you to review their policies independently." },

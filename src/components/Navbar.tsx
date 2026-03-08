@@ -26,7 +26,7 @@ const Navbar = () => {
           <span className="text-lg font-bold gradient-text">Anirban Pay</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.to}

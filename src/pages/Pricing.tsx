@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, ArrowRight, Puzzle } from "lucide-react";
 
 const plans = [
   {
     name: "Self-Hosted",
     price: "Free",
     period: "forever",
-    desc: "Full-featured, deploy on your own server.",
+    desc: "Full-featured. Deploy on your own server.",
     features: [
       "Unlimited transactions",
       "All core features",
@@ -20,6 +20,7 @@ const plans = [
     cta: "Get Started",
     href: "/docs",
     highlighted: false,
+    color: "primary",
   },
   {
     name: "Cloud Hosted",
@@ -37,13 +38,14 @@ const plans = [
     cta: "Coming Soon",
     href: "#",
     highlighted: true,
-    annual: "৳800/year (save 33%)",
+    annual: "৳800/year — save 33%",
+    color: "accent",
   },
   {
     name: "Enterprise",
     price: "Custom",
     period: "",
-    desc: "Tailored solutions for large organizations.",
+    desc: "Tailored for large organizations.",
     features: [
       "Everything in Cloud",
       "Custom integrations",
@@ -55,65 +57,82 @@ const plans = [
     cta: "Contact Us",
     href: "/about",
     highlighted: false,
+    color: "secondary",
   },
 ];
 
 const Pricing = () => (
   <Layout>
-    <section className="section-padding">
-      <div className="container mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Simple, <span className="gradient-text">transparent pricing</span>
+    <section className="relative section-padding overflow-hidden">
+      <div className="orb orb-cyan w-[400px] h-[400px] top-[5%] left-[10%]" />
+      <div className="orb orb-purple w-[400px] h-[400px] bottom-[10%] right-[5%]" />
+      <div className="absolute inset-0 grid-pattern opacity-10" />
+
+      <div className="container mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-20"
+        >
+          <span className="tag tag-primary mb-4 inline-flex"><Sparkles size={12} /> Pricing</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-5 text-balance">
+            Simple, <span className="gradient-text">transparent</span> pricing
           </h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Core platform is free forever. Choose cloud hosting for a hassle-free experience.
+          <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+            Core platform is free forever. Choose cloud for a hassle-free experience.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative rounded-2xl p-8 flex flex-col ${
-                plan.highlighted
-                  ? "gradient-border"
-                  : "glass-card"
+              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className={`relative flex flex-col rounded-3xl p-8 ${
+                plan.highlighted ? "gradient-border-card" : "glass-card"
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold flex items-center gap-1">
-                  <Sparkles size={12} /> Popular
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 text-primary-foreground" style={{ background: "var(--gradient-primary)" }}>
+                  <Sparkles size={11} /> Most Popular
                 </div>
               )}
-              <h3 className="text-lg font-semibold mb-1">{plan.name}</h3>
-              <div className="mb-2">
-                <span className="text-3xl font-bold">{plan.price}</span>
-                <span className="text-muted-foreground text-sm">{plan.period}</span>
+
+              <div className="mb-6">
+                <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wide">{plan.name}</h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                  {plan.period && <span className="text-muted-foreground text-sm">{plan.period}</span>}
+                </div>
+                {plan.annual && (
+                  <p className="text-xs text-primary mt-2 font-medium">{plan.annual}</p>
+                )}
+                <p className="text-sm text-muted-foreground mt-3">{plan.desc}</p>
               </div>
-              {plan.annual && (
-                <p className="text-xs text-primary mb-2">{plan.annual}</p>
-              )}
-              <p className="text-sm text-muted-foreground mb-6">{plan.desc}</p>
+
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm">
-                    <Check size={16} className="text-primary shrink-0 mt-0.5" />
+                  <li key={f} className="flex items-start gap-3 text-sm">
+                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check size={12} className="text-primary" />
+                    </div>
                     <span className="text-muted-foreground">{f}</span>
                   </li>
                 ))}
               </ul>
+
               <Link
                 to={plan.href}
-                className={`block text-center py-3 rounded-xl font-semibold text-sm transition-all ${
+                className={`block text-center py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
                   plan.highlighted
-                    ? "bg-primary text-primary-foreground hover:opacity-90"
-                    : "border border-border text-foreground hover:bg-muted"
+                    ? "text-primary-foreground hover:opacity-90"
+                    : "border border-border/60 text-foreground hover:bg-muted/30 hover:border-border"
                 }`}
+                style={plan.highlighted ? { background: "var(--gradient-primary)" } : {}}
               >
                 {plan.cta}
               </Link>
@@ -124,22 +143,30 @@ const Pricing = () => (
     </section>
 
     {/* Plugin Revenue */}
-    <section className="section-padding bg-card/30">
-      <div className="container mx-auto max-w-3xl text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold mb-4">
-            Earn from your <span className="gradient-text">plugins</span>
+    <section className="section-padding">
+      <div className="container mx-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="glass-card p-10 md:p-16 text-center max-w-3xl mx-auto"
+        >
+          <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
+            <Puzzle size={24} className="text-accent" />
+          </div>
+          <h2 className="text-3xl font-bold mb-4 text-balance">
+            Earn from your <span className="gradient-text-purple">plugins</span>
           </h2>
-          <p className="text-muted-foreground mb-6 leading-relaxed">
-            Developers can create and sell plugins on the Anirban Pay Plugin Store.
+          <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto">
+            Create and sell plugins on the Anirban Pay Plugin Store.
             You keep <strong className="text-foreground">70%</strong> of every sale.
-            We retain 30% to cover platform maintenance, security reviews, and infrastructure.
+            We retain 30% for platform maintenance, security reviews, and infrastructure.
           </p>
           <Link
             to="/plugins"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border border-accent/30 text-accent hover:bg-accent/5 transition-all"
           >
-            Visit Plugin Store
+            Visit Plugin Store <ArrowRight size={16} />
           </Link>
         </motion.div>
       </div>

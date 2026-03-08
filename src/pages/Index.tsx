@@ -167,7 +167,7 @@ const Index = () => {
             <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-6 lg:gap-10 mt-16">
               {stats.map((s) => (
                 <div key={s.label} className="flex items-center gap-3 group">
-                  <div className="w-10 h-10 rounded-xl bg-muted/50 border border-border/40 flex items-center justify-center group-hover:border-primary/30 transition-colors">
+                  <div className="w-10 h-10 rounded-xl liquid-pill flex items-center justify-center group-hover:border-primary/30 transition-colors">
                     <s.icon size={18} className="text-primary" />
                   </div>
                   <div>

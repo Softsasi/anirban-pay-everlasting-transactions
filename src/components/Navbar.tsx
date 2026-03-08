@@ -70,6 +70,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <a
             href="https://github.com/anirbanpay/anirbanpay"
             target="_blank"

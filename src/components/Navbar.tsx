@@ -33,7 +33,7 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-border/50 bg-background/70 backdrop-blur-2xl"
+          ? "liquid-glass-nav"
           : "bg-transparent"
       }`}
     >
@@ -52,7 +52,7 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden lg:flex items-center">
-          <div className="flex items-center gap-0.5 rounded-full border border-border/40 bg-muted/30 backdrop-blur-xl px-1.5 py-1.5">
+          <div className="liquid-pill flex items-center gap-0.5 px-1.5 py-1.5">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -75,13 +75,13 @@ const Navbar = () => {
             href="https://github.com/anirbanpay/anirbanpay"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border border-border/60 text-muted-foreground hover:text-foreground hover:border-border transition-all duration-300"
+            className="liquid-pill flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300"
           >
             <Github size={16} /> GitHub
           </a>
           <Link
             to="/docs"
-            className="relative px-5 py-2 text-sm font-semibold rounded-full text-primary-foreground overflow-hidden group"
+            className="liquid-button relative px-5 py-2 text-sm font-semibold text-primary-foreground overflow-hidden group"
           >
             <span className="absolute inset-0 rounded-full" style={{ background: "var(--gradient-primary)" }} />
             <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "var(--gradient-accent)" }} />
@@ -104,7 +104,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden border-t border-border/30 bg-background/95 backdrop-blur-2xl"
+            className="lg:hidden border-t liquid-glass-nav"
           >
             <div className="container mx-auto px-4 py-6 flex flex-col gap-1">
               {navLinks.map((link) => (
@@ -134,7 +134,7 @@ const Navbar = () => {
                 <Link
                   to="/docs"
                   onClick={() => setOpen(false)}
-                  className="flex-1 text-center px-4 py-2.5 text-sm font-semibold rounded-xl text-primary-foreground"
+                  className="flex-1 text-center px-4 py-2.5 text-sm font-semibold rounded-xl text-primary-foreground liquid-button"
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   Get Started

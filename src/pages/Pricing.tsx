@@ -129,8 +129,8 @@ const Pricing = () => (
                 to={plan.href}
                 className={`block text-center py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
                   plan.highlighted
-                    ? "text-primary-foreground hover:opacity-90"
-                    : "border border-border/60 text-foreground hover:bg-muted/30 hover:border-border"
+                    ? "text-primary-foreground liquid-button hover:opacity-90"
+                    : "liquid-pill text-foreground hover:border-primary/20"
                 }`}
                 style={plan.highlighted ? { background: "var(--gradient-primary)" } : {}}
               >

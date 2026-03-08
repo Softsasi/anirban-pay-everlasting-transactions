@@ -97,7 +97,7 @@ const Plugins = () => {
                 <div className="flex items-center gap-4 mt-auto pt-4 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1"><Tag size={12} />{p.category}</span>
                   <span className="flex items-center gap-1"><Download size={12} />{p.downloads}</span>
-                  <span className="flex items-center gap-1"><Star size={12} className="text-yellow-500" />{p.rating}</span>
+                  <span className="flex items-center gap-1"><Star size={12} className="text-primary" />{p.rating}</span>
                 </div>
               </motion.div>
             ))}

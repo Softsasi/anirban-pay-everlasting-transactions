@@ -3,7 +3,7 @@ import { Github, Heart } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
-  <footer className="relative border-t border-border/30">
+  <footer className="relative border-t border-border/20 liquid-glass-nav mt-8">
     <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
     <div className="container mx-auto px-4 py-20 relative z-10">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">

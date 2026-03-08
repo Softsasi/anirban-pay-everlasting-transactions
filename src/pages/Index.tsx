@@ -147,7 +147,7 @@ const Index = () => {
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
               <Link
                 to="/docs"
-                className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-primary-foreground overflow-hidden"
+                className="liquid-button group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-primary-foreground overflow-hidden"
               >
                 <span className="absolute inset-0" style={{ background: "var(--gradient-primary)" }} />
                 <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "var(--gradient-accent)" }} />
@@ -157,7 +157,7 @@ const Index = () => {
                 href="https://github.com/anirbanpay/anirbanpay"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold border border-border/60 text-foreground hover:bg-muted/30 hover:border-border transition-all duration-300"
+                className="liquid-pill inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-foreground hover:border-primary/20 transition-all duration-300"
               >
                 <Github size={18} /> View Source
               </a>

@@ -32,9 +32,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "liquid-glass-nav"
-          : "bg-transparent"
+        scrolled ? "liquid-glass-nav" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex h-18 items-center justify-between px-4 py-3">
@@ -42,13 +40,11 @@ const Navbar = () => {
           <motion.img
             src={logo}
             alt="Anirban Pay"
-            className="h-10 w-10"
-            whileHover={{ rotate: 10, scale: 1.1 }}
+            className="h-9 w-9"
+            whileHover={{ rotate: 8, scale: 1.08 }}
             transition={{ type: "spring", stiffness: 300 }}
           />
-          <div>
-            <span className="text-base font-bold gradient-text leading-tight">Anirban Pay</span>
-          </div>
+          <span className="text-base font-bold text-foreground leading-tight">Anirban Pay</span>
         </Link>
 
         <div className="hidden lg:flex items-center">
@@ -59,8 +55,8 @@ const Navbar = () => {
                 to={link.to}
                 className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   location.pathname === link.to
-                    ? "bg-primary/10 text-primary shadow-sm"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
                 }`}
               >
                 {link.label}
@@ -77,20 +73,19 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="liquid-pill flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300"
           >
-            <Github size={16} /> GitHub
+            <Github size={15} /> GitHub
           </a>
           <Link
             to="/docs"
             className="liquid-button relative px-5 py-2 text-sm font-semibold text-primary-foreground overflow-hidden group"
           >
             <span className="absolute inset-0 rounded-full" style={{ background: "var(--gradient-primary)" }} />
-            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "var(--gradient-accent)" }} />
             <span className="relative z-10">Get Started</span>
           </Link>
         </div>
 
         <button
-          className="lg:hidden text-foreground p-2 rounded-lg hover:bg-muted/50 transition-colors"
+          className="lg:hidden text-foreground p-2 rounded-lg hover:bg-muted/40 transition-colors"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -121,13 +116,13 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border/30">
+              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border/20">
                 <ThemeToggle />
                 <a
                   href="https://github.com/anirbanpay/anirbanpay"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 text-center px-4 py-2.5 text-sm font-medium rounded-xl border border-border/60 text-muted-foreground"
+                  className="flex-1 text-center px-4 py-2.5 text-sm font-medium rounded-xl border border-border/40 text-muted-foreground"
                 >
                   GitHub
                 </a>

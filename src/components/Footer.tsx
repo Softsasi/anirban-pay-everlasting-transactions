@@ -3,15 +3,14 @@ import { Github, Heart } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
-  <footer className="relative border-t border-border/20 liquid-glass-nav mt-8">
-    <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
+  <footer className="relative border-t border-border/15 liquid-glass-nav mt-8">
     <div className="container mx-auto px-4 py-20 relative z-10">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
         <div className="col-span-2">
           <Link to="/" className="flex items-center gap-3 mb-5 group">
-            <img src={logo} alt="Anirban Pay" className="h-10 w-10" />
+            <img src={logo} alt="Anirban Pay" className="h-9 w-9" />
             <div>
-              <span className="text-lg font-bold gradient-text block leading-tight">Anirban Pay</span>
+              <span className="text-lg font-bold text-foreground block leading-tight">Anirban Pay</span>
               <span className="text-[10px] text-muted-foreground tracking-widest uppercase">যা কখনো নেভে না</span>
             </div>
           </Link>
@@ -22,7 +21,7 @@ const Footer = () => (
             href="https://github.com/anirbanpay/anirbanpay"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-border transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/40 text-sm text-muted-foreground hover:text-foreground hover:border-border transition-all"
           >
             <Github size={14} /> Star on GitHub
           </a>
@@ -60,7 +59,7 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-16 pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="mt-16 pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-xs text-muted-foreground flex items-center gap-1.5">
           Built with <Heart size={12} className="text-accent" /> by{" "}
           <a href="https://softsasi.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Softsasi</a> &{" "}

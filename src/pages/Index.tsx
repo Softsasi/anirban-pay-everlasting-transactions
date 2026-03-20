@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -6,7 +6,7 @@ import {
   Shield, Zap, Puzzle, Server, Globe, Code2,
   ArrowRight, Github, CreditCard, RefreshCw, Webhook,
   Terminal, Sparkles, Users, Download, Star, ChevronRight,
-  Lock, BarChart3
+  Lock, BarChart3, ArrowDown
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -20,11 +20,6 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
-};
-
 const stats = [
   { label: "Open Source", value: "100%", icon: Github },
   { label: "Uptime Goal", value: "24/7", icon: Zap },
@@ -32,15 +27,22 @@ const stats = [
   { label: "Community", value: "Growing", icon: Users },
 ];
 
-const bentoFeatures = [
-  { icon: Puzzle, title: "Plugin Architecture", desc: "WordPress-like extensibility. Build anything.", size: "lg", color: "primary" },
-  { icon: Server, title: "Self-Hosted", desc: "Your data stays on your server. Always.", size: "sm", color: "secondary" },
-  { icon: Shield, title: "Enterprise Security", desc: "2FA, encrypted core, and granular access control.", size: "sm", color: "accent" },
-  { icon: Globe, title: "Multi-Gateway", desc: "bKash, Nagad, Rocket, Binance — connect any payment provider via plugins.", size: "lg", color: "primary" },
-  { icon: Zap, title: "SMS Automation", desc: "Real-time verification via companion app.", size: "sm", color: "accent" },
-  { icon: Code2, title: "REST API", desc: "Developer-first with full documentation.", size: "sm", color: "secondary" },
-  { icon: Lock, title: "Tolerance System", desc: "Accept payments within flexible range.", size: "sm", color: "primary" },
-  { icon: BarChart3, title: "Analytics", desc: "Real-time stats and reporting dashboard.", size: "sm", color: "accent" },
+const features = [
+  { icon: Puzzle, title: "Plugin Architecture", desc: "WordPress-like extensibility. Build anything.", color: "primary" },
+  { icon: Server, title: "Self-Hosted", desc: "Your data stays on your server. Always.", color: "secondary" },
+  { icon: Shield, title: "Enterprise Security", desc: "2FA, encrypted core, and granular access control.", color: "accent" },
+  { icon: Globe, title: "Multi-Gateway", desc: "bKash, Nagad, Rocket, Binance — connect any provider.", color: "primary" },
+  { icon: Zap, title: "SMS Automation", desc: "Real-time verification via companion app.", color: "accent" },
+  { icon: Code2, title: "REST API", desc: "Developer-first with full documentation.", color: "secondary" },
+  { icon: Lock, title: "Tolerance System", desc: "Accept payments within flexible range.", color: "primary" },
+  { icon: BarChart3, title: "Analytics", desc: "Real-time stats and reporting dashboard.", color: "accent" },
+];
+
+const howItWorks = [
+  { step: "01", title: "Deploy", desc: "Install on your server with one command. Full control from day one." },
+  { step: "02", title: "Configure", desc: "Add your payment gateways through the plugin system. bKash, Nagad, and more." },
+  { step: "03", title: "Integrate", desc: "Use our REST API to create checkouts, verify payments, and handle webhooks." },
+  { step: "04", title: "Automate", desc: "SMS verification, cronjob checks, push notifications — all built in." },
 ];
 
 const codeSnippet = `// Initialize checkout
@@ -75,159 +77,210 @@ const marqueeItems = [
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
     <Layout>
-      {/* ====== HERO ====== */}
+      {/* ====== ASYMMETRIC HERO ====== */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Animated orbs */}
-        <div className="orb orb-cyan w-[500px] h-[500px] top-[10%] left-[5%] animate-float-slow" />
-        <div className="orb orb-purple w-[600px] h-[600px] top-[20%] right-[-10%] animate-float" />
-        <div className="orb orb-magenta w-[400px] h-[400px] bottom-[5%] left-[30%] animate-float-slow" style={{ animationDelay: "2s" }} />
+        <div className="ambient-shape ambient-indigo w-[600px] h-[600px] top-[5%] left-[-10%] animate-float-slow" />
+        <div className="ambient-shape ambient-amber w-[500px] h-[500px] top-[30%] right-[-5%] animate-float" />
+        <div className="ambient-shape ambient-blue w-[400px] h-[400px] bottom-[0%] left-[40%] animate-float-slow" style={{ animationDelay: "3s" }} />
 
-        {/* Grid pattern */}
-        <div className="absolute inset-0 grid-pattern opacity-20" />
-
-        {/* Orbiting circles decoration */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] hidden lg:block pointer-events-none">
-          <div className="absolute inset-0 rounded-full border border-border/10 animate-spin-slow" />
-          <div className="absolute inset-8 rounded-full border border-border/10 animate-spin-slow" style={{ animationDirection: "reverse", animationDuration: "25s" }} />
-          <div className="absolute inset-16 rounded-full border border-border/10 animate-spin-slow" style={{ animationDuration: "30s" }} />
-        </div>
+        <div className="absolute inset-0 grid-pattern opacity-[0.08]" />
 
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="container mx-auto px-4 relative z-10"
         >
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="max-w-5xl mx-auto"
-          >
-            {/* Logo + Badge Row */}
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 mb-10 justify-center">
-              <motion.img
-                src={logo}
-                alt="Anirban Pay"
-                className="h-16 w-16 lg:h-20 lg:w-20"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <div className="flex flex-col sm:flex-row items-center gap-3">
-                <span className="tag tag-primary">
-                  <Sparkles size={12} /> Open Source
-                </span>
-                <span className="tag tag-secondary">
-                  Forked from PipraPay
-                </span>
-              </div>
-            </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left: Content — asymmetric, left-aligned */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="lg:col-span-7"
+            >
+              <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+                <motion.img
+                  src={logo}
+                  alt="Anirban Pay"
+                  className="h-14 w-14"
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <div className="flex items-center gap-2">
+                  <span className="tag tag-primary"><Sparkles size={11} /> Open Source</span>
+                  <span className="tag">Forked from PipraPay</span>
+                </div>
+              </motion.div>
 
-            {/* Main heading */}
-            <motion.div variants={fadeUp} className="text-center">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-2 text-balance">
+              <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.05] mb-3">
                 <span className="block text-foreground">Payment Gateway</span>
                 <span className="block gradient-text">That Never Dies</span>
-              </h1>
-              <p className="text-lg text-muted-foreground mt-2 font-display">
-                অনির্বাণ — <em className="text-foreground/70">The Eternal Flame</em>
-              </p>
+              </motion.h1>
+
+              <motion.p variants={fadeUp} className="text-sm text-muted-foreground font-display mb-6">
+                অনির্বাণ — <em className="text-foreground/60">The Eternal Flame</em>
+              </motion.p>
+
+              <motion.p variants={fadeUp} className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed mb-10">
+                Self-hosted, plugin-powered payment automation. Accept payments through any gateway,
+                automate workflows, and maintain complete control — <strong className="text-foreground">forever free</strong>.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/docs"
+                  className="liquid-button group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-primary-foreground overflow-hidden"
+                >
+                  <span className="absolute inset-0" style={{ background: "var(--gradient-primary)" }} />
+                  <span className="relative z-10 flex items-center gap-2">Get Started <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></span>
+                </Link>
+                <a
+                  href="https://github.com/anirbanpay/anirbanpay"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="liquid-pill inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-foreground hover:border-primary/20 transition-all duration-300"
+                >
+                  <Github size={18} /> View Source
+                </a>
+              </motion.div>
             </motion.div>
 
-            {/* Subtitle */}
-            <motion.p variants={fadeUp} className="text-center text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mt-8 leading-relaxed">
-              Self-hosted, plugin-powered payment automation. Accept payments through any gateway,
-              automate workflows, and maintain complete control — <strong className="text-foreground">forever free</strong>.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-              <Link
-                to="/docs"
-                className="liquid-button group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-primary-foreground overflow-hidden"
-              >
-                <span className="absolute inset-0" style={{ background: "var(--gradient-primary)" }} />
-                <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "var(--gradient-accent)" }} />
-                <span className="relative z-10 flex items-center gap-2">Get Started <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></span>
-              </Link>
-              <a
-                href="https://github.com/anirbanpay/anirbanpay"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="liquid-pill inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-foreground hover:border-primary/20 transition-all duration-300"
-              >
-                <Github size={18} /> View Source
-              </a>
-            </motion.div>
-
-            {/* Stats row */}
-            <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-6 lg:gap-10 mt-16">
-              {stats.map((s) => (
-                <div key={s.label} className="flex items-center gap-3 group">
-                  <div className="w-10 h-10 rounded-xl liquid-pill flex items-center justify-center group-hover:border-primary/30 transition-colors">
-                    <s.icon size={18} className="text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold text-foreground">{s.value}</div>
-                    <div className="text-xs text-muted-foreground">{s.label}</div>
-                  </div>
+            {/* Right: Frosted glass dashboard mockup */}
+            <motion.div
+              initial={{ opacity: 0, x: 60, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-5 hidden lg:block"
+            >
+              <div className="liquid-glass noise-overlay p-6 space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-3 h-3 rounded-full bg-accent/70" />
+                  <div className="w-3 h-3 rounded-full bg-primary/50" />
+                  <div className="w-3 h-3 rounded-full bg-secondary/50" />
+                  <span className="text-xs font-mono text-muted-foreground ml-2">dashboard</span>
                 </div>
-              ))}
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { label: "Today's Revenue", val: "৳24,500", change: "+12%" },
+                    { label: "Transactions", val: "142", change: "+8%" },
+                    { label: "Success Rate", val: "98.6%", change: "+0.4%" },
+                    { label: "Active Gateways", val: "5", change: "" },
+                  ].map((m) => (
+                    <div key={m.label} className="liquid-glass rounded-xl p-3.5">
+                      <p className="text-[10px] text-muted-foreground mb-1">{m.label}</p>
+                      <p className="text-lg font-bold text-foreground">{m.val}</p>
+                      {m.change && <span className="text-[10px] text-accent font-medium">{m.change}</span>}
+                    </div>
+                  ))}
+                </div>
+                <div className="liquid-glass rounded-xl p-3.5">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-[10px] text-muted-foreground">Recent</span>
+                    <span className="text-[10px] text-primary font-medium">View all</span>
+                  </div>
+                  {[
+                    { name: "Rasel I.", amount: "৳500", gw: "bKash", status: "completed" },
+                    { name: "Tanvir H.", amount: "৳1,200", gw: "Nagad", status: "completed" },
+                    { name: "Fahim A.", amount: "৳350", gw: "Rocket", status: "pending" },
+                  ].map((tx) => (
+                    <div key={tx.name} className="flex items-center justify-between py-1.5 border-b border-border/10 last:border-0">
+                      <div>
+                        <span className="text-xs font-medium text-foreground">{tx.name}</span>
+                        <span className="text-[10px] text-muted-foreground ml-2">{tx.gw}</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-xs font-semibold text-foreground">{tx.amount}</span>
+                        <span className={`ml-2 text-[9px] font-medium ${tx.status === 'completed' ? 'text-accent' : 'text-muted-foreground'}`}>
+                          {tx.status}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
+          </div>
+
+          {/* Stats row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.7 }}
+            className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-10 mt-16"
+          >
+            {stats.map((s) => (
+              <div key={s.label} className="flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-xl liquid-pill flex items-center justify-center group-hover:border-primary/30 transition-colors">
+                  <s.icon size={17} className="text-primary" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold text-foreground">{s.value}</div>
+                  <div className="text-xs text-muted-foreground">{s.label}</div>
+                </div>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
 
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <ArrowDown size={20} className="text-muted-foreground/40" />
+        </motion.div>
       </section>
 
       {/* ====== GATEWAY MARQUEE ====== */}
-      <section className="py-12 border-y border-border/20 overflow-hidden">
+      <section className="py-10 border-y border-border/15 overflow-hidden">
         <div className="flex items-center animate-marquee" style={{ width: "fit-content" }}>
           {marqueeItems.map((item, i) => (
-            <span key={i} className="mx-8 text-sm font-medium text-muted-foreground/50 whitespace-nowrap uppercase tracking-widest">
+            <span key={i} className="mx-8 text-sm font-medium text-muted-foreground/40 whitespace-nowrap uppercase tracking-widest">
               {item}
             </span>
           ))}
         </div>
       </section>
 
-      {/* ====== BENTO FEATURES ====== */}
+      {/* ====== HORIZONTAL SCROLL FEATURES ====== */}
       <section className="section-padding">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-16"
+            className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border/50" />
-              <span className="tag tag-primary"><Sparkles size={12} /> Features</span>
-              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border/50" />
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border/40" />
+              <span className="tag tag-primary"><Sparkles size={11} /> Features</span>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-center text-balance">
               Built for <span className="gradient-text">serious automation</span>
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {bentoFeatures.map((f, i) => (
+          {/* Horizontal snap-scroll cards */}
+          <div className="snap-scroll-x gap-4 pb-4 -mx-4 px-4">
+            {features.map((f, i) => (
               <motion.div
                 key={f.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className={`bento-card group ${f.size === "lg" ? "lg:col-span-2" : ""}`}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06, duration: 0.5 }}
+                className="w-[280px] md:w-[320px] bento-card group"
               >
                 <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 ${
-                  f.color === "primary" ? "bg-primary/10 group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_-5px_hsl(var(--primary)/0.4)]"
-                  : f.color === "secondary" ? "bg-secondary/10 group-hover:bg-secondary/20"
-                  : "bg-accent/10 group-hover:bg-accent/20"
+                  f.color === "primary" ? "bg-primary/8 group-hover:bg-primary/15"
+                  : f.color === "secondary" ? "bg-secondary/8 group-hover:bg-secondary/15"
+                  : "bg-accent/8 group-hover:bg-accent/15"
                 }`}>
                   <f.icon size={20} className={
                     f.color === "primary" ? "text-primary"
@@ -243,6 +296,53 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ====== STAGGERED TIMELINE: HOW IT WORKS ====== */}
+      <section className="section-padding">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="tag tag-accent mb-4 inline-flex"><Zap size={11} /> How It Works</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-balance">
+              From zero to <span className="gradient-text-amber">payments</span>
+            </h2>
+          </motion.div>
+
+          <div className="relative">
+            {/* Gradient line */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px hidden md:block" style={{ background: "var(--gradient-primary)" }} />
+
+            {howItWorks.map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className={`flex items-center gap-6 mb-8 last:mb-0 ${
+                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
+                <div className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
+                  <div className="liquid-glass p-6 inline-block">
+                    <span className="text-xs font-bold text-accent tracking-widest">{item.step}</span>
+                    <h3 className="text-xl font-bold text-foreground mt-1 mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+                <div className="hidden md:flex w-10 h-10 rounded-full liquid-pill items-center justify-center shrink-0 z-10">
+                  <span className="text-xs font-bold text-primary">{item.step}</span>
+                </div>
+                <div className="flex-1 hidden md:block" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ====== CODE TERMINAL ====== */}
       <section className="section-padding">
         <div className="container mx-auto">
@@ -251,9 +351,9 @@ const Index = () => {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7 }}
             >
-              <span className="tag tag-primary mb-4 inline-flex"><Terminal size={12} /> Developer First</span>
+              <span className="tag tag-primary mb-4 inline-flex"><Terminal size={11} /> Developer First</span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
                 Integrate in <span className="gradient-text">minutes</span>,
                 not days
@@ -291,15 +391,15 @@ const Index = () => {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7 }}
               className="relative"
             >
-              <div className="absolute -inset-4 rounded-3xl bg-primary/5 blur-2xl pointer-events-none" />
+              <div className="absolute -inset-4 rounded-2xl bg-primary/3 blur-2xl pointer-events-none" />
               <div className="code-window relative">
                 <div className="code-window-bar">
                   <div className="code-window-dot bg-accent/60" />
-                  <div className="code-window-dot bg-secondary/60" />
-                  <div className="code-window-dot bg-primary/60" />
+                  <div className="code-window-dot bg-primary/50" />
+                  <div className="code-window-dot bg-secondary/50" />
                   <span className="ml-3 text-xs text-muted-foreground font-mono">checkout.js</span>
                 </div>
                 <pre className="p-6 overflow-x-auto text-[13px] font-mono leading-relaxed text-muted-foreground">
@@ -320,13 +420,12 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="tag tag-accent mb-4 inline-flex"><Puzzle size={12} /> Ecosystem</span>
+            <span className="tag tag-accent mb-4 inline-flex"><Puzzle size={11} /> Ecosystem</span>
             <h2 className="text-3xl md:text-5xl font-bold text-balance">
-              A thriving <span className="gradient-text-purple">plugin marketplace</span>
+              A thriving <span className="gradient-text-amber">plugin marketplace</span>
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto mt-4">
               Build plugins, sell them on our store, and keep <strong className="text-foreground">70%</strong> of every sale.
-              We handle reviews, hosting, and distribution.
             </p>
           </motion.div>
 
@@ -344,7 +443,7 @@ const Index = () => {
                 transition={{ delay: i * 0.1 }}
                 className="bento-card text-center"
               >
-                <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-accent/8 flex items-center justify-center mx-auto mb-4">
                   <item.icon size={22} className="text-accent" />
                 </div>
                 <h3 className="font-semibold mb-2">{item.title}</h3>
@@ -356,7 +455,7 @@ const Index = () => {
           <div className="text-center mt-10">
             <Link
               to="/plugins"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border border-border/60 text-foreground hover:bg-muted/30 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border border-border/50 text-foreground hover:bg-muted/30 transition-all"
             >
               Browse Plugin Store <ArrowRight size={16} />
             </Link>
@@ -371,12 +470,10 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl liquid-glass"
+            className="relative overflow-hidden rounded-2xl liquid-glass"
           >
-            {/* Background */}
             <div className="absolute inset-0" style={{ background: "var(--gradient-primary)" }} />
-            <div className="absolute inset-0 grid-pattern opacity-10" />
-            <div className="orb w-[400px] h-[400px] top-[-100px] right-[-100px] bg-primary-foreground/5 blur-[80px]" />
+            <div className="absolute inset-0 grid-pattern opacity-[0.06]" />
 
             <div className="relative z-10 px-8 py-16 md:px-16 md:py-24 text-center">
               <motion.h2

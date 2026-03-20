@@ -11,36 +11,34 @@ const companies = [
 const About = () => (
   <Layout>
     <section className="relative section-padding overflow-hidden">
-      <div className="orb orb-cyan w-[400px] h-[400px] top-[5%] right-[10%]" />
-      <div className="orb orb-magenta w-[300px] h-[300px] bottom-[15%] left-[5%]" />
-      <div className="absolute inset-0 grid-pattern opacity-10" />
+      <div className="ambient-shape ambient-indigo w-[400px] h-[400px] top-[5%] right-[10%]" />
+      <div className="ambient-shape ambient-amber w-[300px] h-[300px] bottom-[15%] left-[5%]" />
+      <div className="absolute inset-0 grid-pattern opacity-[0.05]" />
 
       <div className="container mx-auto relative z-10 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7 }}
         >
-          {/* Header */}
           <div className="text-center mb-20">
             <motion.img
               src={logo}
               alt="Anirban Pay"
               className="h-20 w-20 mx-auto mb-6"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
-            <span className="tag tag-primary mb-4 inline-flex"><Sparkles size={12} /> Our Story</span>
+            <span className="tag tag-primary mb-4 inline-flex"><Sparkles size={11} /> Our Story</span>
             <h1 className="text-4xl md:text-6xl font-bold mb-5 text-balance">
               About <span className="gradient-text">Anirban Pay</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              <strong className="text-foreground">অনির্বাণ</strong> means "the eternal flame" — that which never extinguishes. 
+              <strong className="text-foreground">অনির্বাণ</strong> means "the eternal flame" — that which never extinguishes.
               For a 24/7 payment gateway, it's the perfect metaphor.
             </p>
           </div>
 
-          {/* Mission */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +46,7 @@ const About = () => (
             className="glass-card p-8 lg:p-12 mb-8"
           >
             <div className="flex items-start gap-5 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-primary/8 flex items-center justify-center shrink-0">
                 <Heart size={22} className="text-primary" />
               </div>
               <div>
@@ -68,7 +66,6 @@ const About = () => (
             </div>
           </motion.div>
 
-          {/* Founders */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
             {companies.map((c, i) => (
               <motion.a
@@ -83,7 +80,7 @@ const About = () => (
                 className="glass-card-hover p-8 group block"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-secondary/8 flex items-center justify-center group-hover:bg-secondary/15 transition-colors">
                     <Users size={18} className="text-secondary" />
                   </div>
                   <div>
@@ -98,7 +95,6 @@ const About = () => (
             ))}
           </div>
 
-          {/* Open Source & Fork */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -106,7 +102,7 @@ const About = () => (
               viewport={{ once: true }}
               className="glass-card p-8"
             >
-              <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <div className="w-11 h-11 rounded-xl bg-primary/8 flex items-center justify-center mb-5">
                 <Github size={20} className="text-primary" />
               </div>
               <h2 className="text-xl font-bold mb-3">Open Source</h2>
@@ -127,7 +123,7 @@ const About = () => (
                   href="https://github.com/anirbanpay/anirbanpay"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 text-sm font-medium text-foreground hover:bg-muted/30 transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/40 text-sm font-medium text-foreground hover:bg-muted/30 transition-all"
                 >
                   Main Repo
                 </a>
@@ -141,7 +137,7 @@ const About = () => (
               transition={{ delay: 0.1 }}
               className="glass-card p-8"
             >
-              <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
+              <div className="w-11 h-11 rounded-xl bg-accent/8 flex items-center justify-center mb-5">
                 <Sparkles size={20} className="text-accent" />
               </div>
               <h2 className="text-xl font-bold mb-3">Forked from PipraPay</h2>

@@ -8,7 +8,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggle}
-      className="relative w-9 h-9 rounded-full border border-border/50 bg-muted/30 flex items-center justify-center hover:bg-muted/50 transition-all duration-300"
+      className="relative w-9 h-9 rounded-full border border-border/40 bg-muted/20 flex items-center justify-center hover:bg-muted/40 transition-all duration-300"
       aria-label="Toggle theme"
     >
       <motion.div
@@ -18,9 +18,9 @@ const ThemeToggle = () => {
         transition={{ duration: 0.3 }}
       >
         {theme === "dark" ? (
-          <Sun size={15} className="text-primary" />
+          <Sun size={15} className="text-accent" />
         ) : (
-          <Moon size={15} className="text-secondary" />
+          <Moon size={15} className="text-primary" />
         )}
       </motion.div>
     </button>

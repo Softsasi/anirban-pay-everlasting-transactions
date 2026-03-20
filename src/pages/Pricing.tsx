@@ -64,18 +64,18 @@ const plans = [
 const Pricing = () => (
   <Layout>
     <section className="relative section-padding overflow-hidden">
-      <div className="orb orb-cyan w-[400px] h-[400px] top-[5%] left-[10%]" />
-      <div className="orb orb-purple w-[400px] h-[400px] bottom-[10%] right-[5%]" />
-      <div className="absolute inset-0 grid-pattern opacity-10" />
+      <div className="ambient-shape ambient-indigo w-[400px] h-[400px] top-[5%] left-[10%]" />
+      <div className="ambient-shape ambient-amber w-[400px] h-[400px] bottom-[10%] right-[5%]" />
+      <div className="absolute inset-0 grid-pattern opacity-[0.05]" />
 
       <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <span className="tag tag-primary mb-4 inline-flex"><Sparkles size={12} /> Pricing</span>
+          <span className="tag tag-primary mb-4 inline-flex"><Sparkles size={11} /> Pricing</span>
           <h1 className="text-4xl md:text-6xl font-bold mb-5 text-balance">
             Simple, <span className="gradient-text">transparent</span> pricing
           </h1>
@@ -84,32 +84,35 @@ const Pricing = () => (
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        {/* Overlapping cards layout */}
+        <div className="flex flex-col md:flex-row items-end justify-center gap-5 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className={`relative flex flex-col rounded-3xl p-8 ${
-                plan.highlighted ? "gradient-border-card" : "glass-card"
+              transition={{ delay: i * 0.12, duration: 0.6 }}
+              className={`relative flex flex-col rounded-2xl p-8 w-full md:w-1/3 ${
+                plan.highlighted
+                  ? "gradient-border-card md:-mt-6 md:pb-10 z-10"
+                  : "glass-card"
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 text-primary-foreground" style={{ background: "var(--gradient-primary)" }}>
-                  <Sparkles size={11} /> Most Popular
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 text-primary-foreground" style={{ background: "var(--gradient-accent)" }}>
+                  <Sparkles size={10} /> Most Popular
                 </div>
               )}
 
               <div className="mb-6">
-                <h3 className="text-base font-semibold mb-3 text-muted-foreground uppercase tracking-wide">{plan.name}</h3>
+                <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wide">{plan.name}</h3>
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                   {plan.period && <span className="text-muted-foreground text-sm">{plan.period}</span>}
                 </div>
                 {plan.annual && (
-                  <p className="text-xs text-primary mt-2 font-medium">{plan.annual}</p>
+                  <p className="text-xs text-accent mt-2 font-medium">{plan.annual}</p>
                 )}
                 <p className="text-sm text-muted-foreground mt-3">{plan.desc}</p>
               </div>
@@ -117,7 +120,7 @@ const Pricing = () => (
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm">
-                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-primary/8 flex items-center justify-center shrink-0 mt-0.5">
                       <Check size={12} className="text-primary" />
                     </div>
                     <span className="text-muted-foreground">{f}</span>
@@ -151,11 +154,11 @@ const Pricing = () => (
           viewport={{ once: true }}
           className="liquid-glass p-10 md:p-16 text-center max-w-3xl mx-auto"
         >
-          <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
+          <div className="w-14 h-14 rounded-2xl bg-accent/8 flex items-center justify-center mx-auto mb-6">
             <Puzzle size={24} className="text-accent" />
           </div>
           <h2 className="text-3xl font-bold mb-4 text-balance">
-            Earn from your <span className="gradient-text-purple">plugins</span>
+            Earn from your <span className="gradient-text-amber">plugins</span>
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto">
             Create and sell plugins on the Anirban Pay Plugin Store.
@@ -164,7 +167,7 @@ const Pricing = () => (
           </p>
           <Link
             to="/plugins"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border border-accent/30 text-accent hover:bg-accent/5 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border border-accent/25 text-accent hover:bg-accent/5 transition-all"
           >
             Visit Plugin Store <ArrowRight size={16} />
           </Link>

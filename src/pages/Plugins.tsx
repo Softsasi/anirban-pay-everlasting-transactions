@@ -33,27 +33,26 @@ const Plugins = () => {
   return (
     <Layout>
       <section className="relative section-padding overflow-hidden">
-        <div className="orb orb-magenta w-[400px] h-[400px] top-[5%] right-[-5%]" />
-        <div className="orb orb-purple w-[300px] h-[300px] bottom-[20%] left-[-5%]" />
-        <div className="absolute inset-0 grid-pattern opacity-10" />
+        <div className="ambient-shape ambient-amber w-[400px] h-[400px] top-[5%] right-[-5%]" />
+        <div className="ambient-shape ambient-blue w-[300px] h-[300px] bottom-[20%] left-[-5%]" />
+        <div className="absolute inset-0 grid-pattern opacity-[0.05]" />
 
         <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
-            <span className="tag tag-accent mb-4 inline-flex"><Sparkles size={12} /> Marketplace</span>
+            <span className="tag tag-accent mb-4 inline-flex"><Sparkles size={11} /> Marketplace</span>
             <h1 className="text-4xl md:text-6xl font-bold mb-5 text-balance">
-              <span className="gradient-text-purple">Plugin Store</span>
+              <span className="gradient-text-amber">Plugin Store</span>
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">
               Extend Anirban Pay with community and official plugins. Developers keep <strong className="text-foreground">70%</strong> of sales.
             </p>
           </motion.div>
 
-          {/* Search & Filter */}
           <div className="max-w-2xl mx-auto mb-14">
             <div className="relative mb-6">
               <Search size={18} className="absolute left-5 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -62,7 +61,7 @@ const Plugins = () => {
                 placeholder="Search plugins..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-12 pr-5 py-4 rounded-2xl bg-muted/50 border border-border/40 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 backdrop-blur-xl transition-all"
+                className="w-full pl-12 pr-5 py-4 rounded-2xl bg-muted/40 border border-border/30 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/25 focus:border-primary/25 backdrop-blur-xl transition-all"
               />
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
@@ -73,7 +72,7 @@ const Plugins = () => {
                   className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
                     cat === c
                       ? "text-primary-foreground shadow-sm"
-                      : "bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-muted border border-border/30"
+                      : "bg-muted/40 text-muted-foreground hover:text-foreground hover:bg-muted border border-border/20"
                   }`}
                   style={cat === c ? { background: "var(--gradient-primary)" } : {}}
                 >
@@ -83,7 +82,6 @@ const Plugins = () => {
             </div>
           </div>
 
-          {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map((p, i) => (
               <motion.div
@@ -99,7 +97,7 @@ const Plugins = () => {
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">{p.name}</h3>
                       {p.official && (
-                        <span className="shrink-0 w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center" title="Official">
+                        <span className="shrink-0 w-4 h-4 rounded-full bg-primary/15 flex items-center justify-center" title="Official">
                           <Sparkles size={9} className="text-primary" />
                         </span>
                       )}
@@ -112,11 +110,11 @@ const Plugins = () => {
                     {p.price}
                   </span>
                 </div>
-                <div className="flex items-center gap-5 mt-auto pt-4 border-t border-border/20 text-xs text-muted-foreground">
+                <div className="flex items-center gap-5 mt-auto pt-4 border-t border-border/15 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1.5"><Tag size={11} />{p.category}</span>
                   <span className="flex items-center gap-1.5"><Download size={11} />{p.downloads}</span>
-                  <span className="flex items-center gap-1.5"><Star size={11} className="text-primary" />{p.rating}</span>
-                  <ArrowUpRight size={14} className="ml-auto text-muted-foreground/30 group-hover:text-primary transition-colors" />
+                  <span className="flex items-center gap-1.5"><Star size={11} className="text-accent" />{p.rating}</span>
+                  <ArrowUpRight size={14} className="ml-auto text-muted-foreground/20 group-hover:text-primary transition-colors" />
                 </div>
               </motion.div>
             ))}

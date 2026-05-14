@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Search, Download, Star, Tag, Sparkles, ArrowUpRight } from "lucide-react";
@@ -32,6 +33,11 @@ const Plugins = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Plugins & Integrations – Anirban Pay"
+        description="Browse official and community plugins for WHMCS, WooCommerce, Blesta, and more. Extend your payment gateway in minutes."
+        path="/plugins"
+      />
       <section className="relative section-padding overflow-hidden">
         <div className="ambient-shape ambient-amber w-[400px] h-[400px] top-[5%] right-[-5%]" />
         <div className="ambient-shape ambient-blue w-[300px] h-[300px] bottom-[20%] left-[-5%]" />

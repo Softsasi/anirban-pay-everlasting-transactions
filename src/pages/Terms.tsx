@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { FileText } from "lucide-react";
@@ -15,6 +16,11 @@ const sections = [
 
 const Terms = () => (
   <Layout>
+    <SEO
+      title="Terms of Service – Anirban Pay"
+      description="Terms governing the use of Anirban Pay's open-source payment automation platform."
+      path="/terms"
+    />
     <section className="relative section-padding overflow-hidden">
       <div className="orb orb-purple w-[300px] h-[300px] top-[10%] left-[10%]" />
       <div className="absolute inset-0 dot-pattern opacity-10" />

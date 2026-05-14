@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { ExternalLink, Sparkles, Github, Heart, Users } from "lucide-react";
@@ -10,6 +11,11 @@ const companies = [
 
 const About = () => (
   <Layout>
+    <SEO
+      title="About – Anirban Pay"
+      description="The story, mission, and team behind Anirban Pay — a forever-free, open-source payment automation platform."
+      path="/about"
+    />
     <section className="relative section-padding overflow-hidden">
       <div className="ambient-shape ambient-indigo w-[400px] h-[400px] top-[5%] right-[10%]" />
       <div className="ambient-shape ambient-amber w-[300px] h-[300px] bottom-[15%] left-[5%]" />

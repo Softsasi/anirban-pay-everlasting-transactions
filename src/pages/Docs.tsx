@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
@@ -54,6 +55,11 @@ const Docs = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Documentation – Anirban Pay"
+        description="Install, configure, and integrate Anirban Pay. Quickstart, API reference, plugin guides, and self-hosting instructions."
+        path="/docs"
+      />
       <div className="relative section-padding overflow-hidden">
         <div className="ambient-shape ambient-indigo w-[300px] h-[300px] top-[5%] right-[10%]" />
         <div className="absolute inset-0 dot-pattern opacity-[0.05]" />

@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
@@ -27,6 +28,11 @@ const Features = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Features – Anirban Pay"
+        description="Plugin architecture, 15+ gateways, automation, webhooks, 2FA, and self-hosted control. Everything you need in a payment platform."
+        path="/features"
+      />
       <section className="relative section-padding overflow-hidden">
         <div className="ambient-shape ambient-indigo w-[400px] h-[400px] top-[10%] right-[-5%]" />
         <div className="ambient-shape ambient-blue w-[300px] h-[300px] bottom-[10%] left-[-5%]" />

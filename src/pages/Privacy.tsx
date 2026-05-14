@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Shield } from "lucide-react";
@@ -14,6 +15,11 @@ const sections = [
 
 const Privacy = () => (
   <Layout>
+    <SEO
+      title="Privacy Policy – Anirban Pay"
+      description="How Anirban Pay handles your data. Self-hosted by design — your data stays with you."
+      path="/privacy"
+    />
     <section className="relative section-padding overflow-hidden">
       <div className="orb orb-cyan w-[300px] h-[300px] top-[10%] right-[10%]" />
       <div className="absolute inset-0 dot-pattern opacity-10" />

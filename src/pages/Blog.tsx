@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Calendar, ArrowRight, Sparkles } from "lucide-react";
@@ -14,6 +15,18 @@ const posts = [
 
 const Blog = () => (
   <Layout>
+    <SEO
+      title="Blog – Updates & Guides | Anirban Pay"
+      description="Release notes, integration walkthroughs, and announcements from the Anirban Pay team."
+      path="/blog"
+      jsonLd={posts.map((p) => ({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: p.title,
+        datePublished: p.date,
+        description: p.excerpt,
+      }))}
+    />
     <section className="relative section-padding overflow-hidden">
       <div className="ambient-shape ambient-indigo w-[300px] h-[300px] top-[10%] left-[5%]" />
       <div className="absolute inset-0 dot-pattern opacity-[0.05]" />

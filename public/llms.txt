@@ -1,0 +1,18 @@
+# Anirban Pay
+
+> Anirban Pay is an open-source, self-hosted payment automation platform. Plugin-powered, developer-friendly, and forever free. Forked from PipraPay.
+
+## Pages
+
+- [Home](/): Overview of Anirban Pay — the eternal, self-hosted payment gateway.
+- [Features](/features): Plugin architecture, gateway support, automation, and security features.
+- [Pricing](/pricing): Free core platform with optional premium add-ons.
+- [Docs](/docs): Installation, configuration, and developer guides.
+- [Plugins](/plugins): Official and community plugins for WHMCS, WooCommerce, Blesta, and more.
+- [Blog](/blog): Release notes, announcements, and integration guides.
+- [About](/about): Project story, mission, and the team behind it.
+
+## Optional
+
+- [Privacy](/privacy): Privacy policy.
+- [Terms](/terms): Terms of service.

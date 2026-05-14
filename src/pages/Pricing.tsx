@@ -63,6 +63,11 @@ const plans = [
 
 const Pricing = () => (
   <Layout>
+    <SEO
+      title="Pricing – Anirban Pay"
+      description="Free forever core platform. Optional premium add-ons for teams that need extra features. Transparent, simple, no lock-in."
+      path="/pricing"
+    />
     <section className="relative section-padding overflow-hidden">
       <div className="ambient-shape ambient-indigo w-[400px] h-[400px] top-[5%] left-[10%]" />
       <div className="ambient-shape ambient-amber w-[400px] h-[400px] bottom-[10%] right-[5%]" />

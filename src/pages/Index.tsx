@@ -9,6 +9,26 @@ import {
   Lock, BarChart3, ArrowDown
 } from "lucide-react";
 import logo from "@/assets/logo.png";
+import SEO from "@/components/SEO";
+
+const indexJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Anirban Pay",
+    url: "https://anirban-everlasting-pay.lovable.app",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Anirban Pay",
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Web, Linux",
+    description:
+      "Open-source, self-hosted, plugin-powered payment automation platform.",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  },
+];
 
 const stagger = {
   hidden: {},
@@ -82,6 +102,12 @@ const Index = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Anirban Pay – The Eternal Payment Gateway"
+        description="Open-source, self-hosted payment automation. Plugin-powered, developer-friendly, forever free. Accept payments and own your data."
+        path="/"
+        jsonLd={indexJsonLd}
+      />
       {/* ====== ASYMMETRIC HERO ====== */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
         <div className="ambient-shape ambient-indigo w-[600px] h-[600px] top-[5%] left-[-10%] animate-float-slow" />

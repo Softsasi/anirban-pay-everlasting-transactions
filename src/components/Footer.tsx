@@ -62,8 +62,7 @@ const Footer = () => (
       <div className="mt-16 pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-xs text-muted-foreground flex items-center gap-1.5">
           Built with <Heart size={12} className="text-accent" /> by{" "}
-          <a href="https://softsasi.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Softsasi</a> &{" "}
-          <a href="https://builderhall.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Builder Hall</a>
+          <a href="https://softsasi.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Softsasi</a>
         </p>
         <p className="text-xs text-muted-foreground">
           Forked from <a href="https://piprapay.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">PipraPay</a> · © {new Date().getFullYear()} Anirban Pay

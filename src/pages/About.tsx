@@ -5,8 +5,7 @@ import { ExternalLink, Sparkles, Github, Heart, Users } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const companies = [
-  { name: "Softsasi", url: "https://softsasi.com", role: "Co-Founder & Development Partner", desc: "Leading the development and technical architecture of Anirban Pay." },
-  { name: "Builder Hall", url: "https://builderhall.com", role: "Co-Founder & Infrastructure Partner", desc: "Providing infrastructure, deployment, and scalability solutions." },
+  { name: "Softsasi", url: "https://softsasi.com", role: "Founder & Development Partner", desc: "Leading the development and technical architecture of Anirban Pay." },
 ];
 
 const About = () => (

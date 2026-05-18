@@ -31,8 +31,8 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "liquid-glass-nav" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 liquid-glass-nav ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
       <div className="container mx-auto flex h-18 items-center justify-between px-4 py-3">

@@ -56,14 +56,14 @@
     --shadow-glow-blue: 0 0 40px -10px hsl(245 58% 51% / 0.12);
     --shadow-glow-accent: 0 0 40px -10px hsl(38 92% 50% / 0.12);
 
-    --glass-bg: 0 0% 100% / 0.65;
-    --glass-bg-alt: 220 14% 98% / 0.4;
-    --glass-border: 0 0% 100% / 0.7;
+    --glass-bg: 0 0% 100% / 0.75;
+    --glass-bg-alt: 220 14% 98% / 0.6;
+    --glass-border: 220 13% 88% / 1;
     --glass-highlight: 0 0% 100% / 0.9;
-    --glass-refraction: linear-gradient(135deg, hsl(38, 92%, 80%, 0.12), hsl(239, 84%, 80%, 0.06), transparent 60%);
-    --glass-inner-glow: inset 0 1px 1px 0 hsl(0 0% 100% / 0.7);
-    --glass-shadow: 0 8px 32px -4px hsl(222 47% 11% / 0.06), 0 2px 8px -2px hsl(222 47% 11% / 0.03);
-    --glass-shadow-hover: 0 16px 48px -8px hsl(222 47% 11% / 0.1), 0 4px 16px -4px hsl(222 47% 11% / 0.05);
+    --glass-refraction: linear-gradient(135deg, hsl(38, 92%, 80%, 0.1), hsl(239, 84%, 80%, 0.05), transparent 60%);
+    --glass-inner-glow: inset 0 1px 1px 0 hsl(0 0% 100% / 0.8);
+    --glass-shadow: 0 4px 24px -6px hsl(222 47% 11% / 0.08), 0 1px 3px hsl(222 47% 11% / 0.04);
+    --glass-shadow-hover: 0 12px 40px -8px hsl(222 47% 11% / 0.12), 0 2px 8px -2px hsl(222 47% 11% / 0.06);
 
     --code-bg: 220 14% 96%;
     --code-bar-bg: 220 13% 93%;

@@ -180,10 +180,10 @@ const Index = () => {
 
             <motion.h1
               variants={fadeUp}
-              className="text-[3.25rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold leading-[0.95] tracking-tight mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight mb-6"
             >
-              <span className="block text-foreground">The payment gateway</span>
-              <span className="block gradient-text italic font-display">that never dies.</span>
+              <span className="text-foreground">The payment gateway </span>
+              <span className="gradient-text italic font-display">that never dies.</span>
             </motion.h1>
 
             <motion.p

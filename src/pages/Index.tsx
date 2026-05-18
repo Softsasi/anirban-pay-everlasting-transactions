@@ -108,157 +108,118 @@ const Index = () => {
         path="/"
         jsonLd={indexJsonLd}
       />
-      {/* ====== ASYMMETRIC HERO ====== */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="ambient-shape ambient-indigo w-[600px] h-[600px] top-[5%] left-[-10%] animate-float-slow" />
-        <div className="ambient-shape ambient-amber w-[500px] h-[500px] top-[30%] right-[-5%] animate-float" />
-        <div className="ambient-shape ambient-blue w-[400px] h-[400px] bottom-[0%] left-[40%] animate-float-slow" style={{ animationDelay: "3s" }} />
+      {/* ====== MINIMAL CENTERED HERO ====== */}
+      <section ref={heroRef} className="relative min-h-[92vh] flex items-center overflow-hidden pt-20 pb-16">
+        {/* Ambient glow */}
+        <div className="ambient-shape ambient-indigo w-[700px] h-[700px] top-[-15%] left-1/2 -translate-x-1/2 animate-float-slow opacity-60" />
+        <div className="ambient-shape ambient-amber w-[420px] h-[420px] bottom-[-10%] right-[5%] animate-float opacity-50" />
+        <div className="absolute inset-0 grid-pattern opacity-[0.06]" />
 
-        <div className="absolute inset-0 grid-pattern opacity-[0.08]" />
+        {/* Floating glass pills — visual ambience, not text-heavy */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="hidden lg:flex absolute top-[22%] left-[6%] liquid-glass rounded-2xl px-4 py-3 items-center gap-3 animate-float-slow"
+        >
+          <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <div>
+            <div className="text-[10px] text-muted-foreground uppercase tracking-widest">bKash</div>
+            <div className="text-sm font-bold text-foreground">৳1,200 <span className="text-[10px] text-accent ml-1">✓</span></div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.0, duration: 0.8 }}
+          className="hidden lg:flex absolute top-[32%] right-[7%] liquid-glass rounded-2xl px-4 py-3 items-center gap-3 animate-float"
+          style={{ animationDelay: "1.5s" }}
+        >
+          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <div>
+            <div className="text-[10px] text-muted-foreground uppercase tracking-widest">Nagad</div>
+            <div className="text-sm font-bold text-foreground">৳500 <span className="text-[10px] text-accent ml-1">✓</span></div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="hidden lg:flex absolute bottom-[22%] left-[10%] liquid-glass rounded-full px-4 py-2 items-center gap-2 animate-float"
+        >
+          <Zap size={12} className="text-accent" />
+          <span className="text-xs font-medium text-foreground">98.6% uptime</span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+          className="hidden lg:flex absolute bottom-[28%] right-[12%] liquid-glass rounded-full px-4 py-2 items-center gap-2 animate-float-slow"
+          style={{ animationDelay: "2s" }}
+        >
+          <Github size={12} className="text-primary" />
+          <span className="text-xs font-medium text-foreground">100% open source</span>
+        </motion.div>
 
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="container mx-auto px-4 relative z-10"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left: Content — asymmetric, left-aligned */}
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={stagger}
-              className="lg:col-span-7"
-            >
-              <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
-                <motion.img
-                  src={logo}
-                  alt="Anirban Pay"
-                  className="h-14 w-14"
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <div className="flex items-center gap-2">
-                  <span className="tag tag-primary"><Sparkles size={11} /> Open Source</span>
-                  <span className="tag">Forked from PipraPay</span>
-                </div>
-              </motion.div>
-
-              <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.05] mb-3">
-                <span className="block text-foreground">Payment Gateway</span>
-                <span className="block gradient-text">That Never Dies</span>
-              </motion.h1>
-
-              <motion.p variants={fadeUp} className="text-sm text-muted-foreground font-display mb-6">
-                অনির্বাণ — <em className="text-foreground/60">The Eternal Flame</em>
-              </motion.p>
-
-              <motion.p variants={fadeUp} className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed mb-10">
-                Self-hosted, plugin-powered payment automation. Accept payments through any gateway,
-                automate workflows, and maintain complete control — <strong className="text-foreground">forever free</strong>.
-              </motion.p>
-
-              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/docs"
-                  className="liquid-button group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-primary-foreground overflow-hidden"
-                >
-                  <span className="absolute inset-0" style={{ background: "var(--gradient-primary)" }} />
-                  <span className="relative z-10 flex items-center gap-2">Get Started <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></span>
-                </Link>
-                <a
-                  href="https://github.com/anirbanpay/anirbanpay"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="liquid-pill inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-foreground hover:border-primary/20 transition-all duration-300"
-                >
-                  <Github size={18} /> View Source
-                </a>
-              </motion.div>
-            </motion.div>
-
-            {/* Right: Frosted glass dashboard mockup */}
-            <motion.div
-              initial={{ opacity: 0, x: 60, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5 hidden lg:block"
-            >
-              <div className="liquid-glass noise-overlay p-6 space-y-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-3 h-3 rounded-full bg-accent/70" />
-                  <div className="w-3 h-3 rounded-full bg-primary/50" />
-                  <div className="w-3 h-3 rounded-full bg-secondary/50" />
-                  <span className="text-xs font-mono text-muted-foreground ml-2">dashboard</span>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { label: "Today's Revenue", val: "৳24,500", change: "+12%" },
-                    { label: "Transactions", val: "142", change: "+8%" },
-                    { label: "Success Rate", val: "98.6%", change: "+0.4%" },
-                    { label: "Active Gateways", val: "5", change: "" },
-                  ].map((m) => (
-                    <div key={m.label} className="liquid-glass rounded-xl p-3.5">
-                      <p className="text-[10px] text-muted-foreground mb-1">{m.label}</p>
-                      <p className="text-lg font-bold text-foreground">{m.val}</p>
-                      {m.change && <span className="text-[10px] text-accent font-medium">{m.change}</span>}
-                    </div>
-                  ))}
-                </div>
-                <div className="liquid-glass rounded-xl p-3.5">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-[10px] text-muted-foreground">Recent</span>
-                    <span className="text-[10px] text-primary font-medium">View all</span>
-                  </div>
-                  {[
-                    { name: "Rasel I.", amount: "৳500", gw: "bKash", status: "completed" },
-                    { name: "Tanvir H.", amount: "৳1,200", gw: "Nagad", status: "completed" },
-                    { name: "Fahim A.", amount: "৳350", gw: "Rocket", status: "pending" },
-                  ].map((tx) => (
-                    <div key={tx.name} className="flex items-center justify-between py-1.5 border-b border-border/10 last:border-0">
-                      <div>
-                        <span className="text-xs font-medium text-foreground">{tx.name}</span>
-                        <span className="text-[10px] text-muted-foreground ml-2">{tx.gw}</span>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-xs font-semibold text-foreground">{tx.amount}</span>
-                        <span className={`ml-2 text-[9px] font-medium ${tx.status === 'completed' ? 'text-accent' : 'text-muted-foreground'}`}>
-                          {tx.status}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Stats row */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.7 }}
-            className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-10 mt-16"
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="max-w-4xl mx-auto text-center"
           >
-            {stats.map((s) => (
-              <div key={s.label} className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-xl liquid-pill flex items-center justify-center group-hover:border-primary/30 transition-colors">
-                  <s.icon size={17} className="text-primary" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-foreground">{s.value}</div>
-                  <div className="text-xs text-muted-foreground">{s.label}</div>
-                </div>
-              </div>
-            ))}
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 mb-8">
+              <span className="tag tag-primary"><Sparkles size={11} /> Open source · forever free</span>
+            </motion.div>
+
+            <motion.h1
+              variants={fadeUp}
+              className="text-[3.25rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold leading-[0.95] tracking-tight mb-8"
+            >
+              <span className="block text-foreground">The payment gateway</span>
+              <span className="block gradient-text italic font-display">that never dies.</span>
+            </motion.h1>
+
+            <motion.p
+              variants={fadeUp}
+              className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-10"
+            >
+              Self-hosted. Plugin-powered. Yours forever.
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+              <Link
+                to="/docs"
+                className="liquid-button group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-primary-foreground overflow-hidden"
+              >
+                <span className="absolute inset-0" style={{ background: "var(--gradient-primary)" }} />
+                <span className="relative z-10 flex items-center gap-2">Start in 60 seconds <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></span>
+              </Link>
+              <a
+                href="https://github.com/anirbanpay/anirbanpay"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3.5 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
+              >
+                <Github size={16} /> View on GitHub
+              </a>
+            </motion.div>
           </motion.div>
         </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <ArrowDown size={20} className="text-muted-foreground/40" />
+          <ArrowDown size={18} className="text-muted-foreground/40" />
         </motion.div>
       </section>
 
